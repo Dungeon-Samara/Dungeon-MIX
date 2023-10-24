@@ -164,16 +164,62 @@ console.log('Нужен холодок:',radioValue);
 };
 
 
-document.addEventListener('DOMContentLoaded', function() {
+// Конфиг с данными для авторизации 
+const config = {
+  clientId: '29966803',
+  clientSecret: 'mqlqfclzKKrEAbG7xU90BVLEy5dBUpTra9kApUvMnuiu4RtmrxXESQzX8PfKSgAh',
+  redirectUri: 'https://dungeon-samara.github.io/Dungeon-MIX/',
+};
 
-  addEventListener('fetch', event => {
+// Функция для получения токена и обмена кода 
+async function getToken(code) {
 
-    let data = event.request.json();
+  const url = 'https://www.amocrm.ru/oauth2/access_token';
 
-    let leadId = data.leads.id; // здесь будет id сделки
-    
-    console.log(leadId);
-  }); 
+  const body = {
+    client_id: config.clientId,
+    client_secret: config.clientSecret,
+    redirect_uri: config.redirectUri,
+    grant_type: 'authorization_code',
+    code: code,
+  };
 
-});
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(body)
+  };
 
+  const response = await fetch(url, options);
+
+  const data = await response.json();
+
+  // Сохраняем токен в cookies
+  document.cookie = `amo_token=${data.access_token}`;
+
+  return data.access_token;
+}
+
+// Usage
+
+const code = getCode(); // Получение кода авторизации  
+
+const token = await getToken(code);
+
+// webhook.js
+
+export default async function handler(request) {
+
+  const data = await request.json();
+
+  const leadId = data.lead_id;
+  
+  console.log('Lead ID:', leadId);
+  
+  // ... другая обработка данных  
+
+  return { status: 200 };
+
+}
