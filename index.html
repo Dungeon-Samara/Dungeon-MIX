@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/main.css">
+    <script src="js/app.js" defer></script>
+    <title>DUNGEON-MIX</title>
+</head>
+<body>
+    <div class="dungeon">
+        <h1>DUNGEON MIX BOT</h1>
+    </div>
+    <div id="knopki">
+      <div id="kart" onclick="kart1()" class="knopka">
+        <img src="img/karta.jpg">
+        <p>Кальянная карта</p>
+      </div>
+      <div id="mix" onclick="kart2()" class="knopka">
+        <p>Составить самому</p>
+      </div>
+    </div>
+      <form id="krepost">
+        <!-- Блок куда будем добавлять выбранные теги -->
+       <h1>Выбранные теги</h1>
+       <hr>
+       <div class="selected-tags">
+         <p id="tag_none">Пока не выбрано ни одного тега</p>
+         <template id="template">
+           <div class="copy"></div>
+         </template>
+       </div>
+       <!-- Блок для отображения доступных тегов -->
+       <h1>Категории</h1>
+       <hr>
+       <div class="tags">
+         <div class="tag" id="1">Сладкий</div>
+         <div class="tag" id="2">Свежий</div>
+         <div class="tag" id="3">Кислый</div>
+         <div class="tag" id="4">Ягодный</div>
+         <div class="tag" id="5">Фруктовый</div>
+         <div class="tag" id="6">Цитрусовый</div>
+         <div class="tag" id="7">Тропический</div>
+         <div class="tag" id="8">Десертный</div>
+         <div class="tag" id="9">Травянистый</div>
+       </div>
+        <h1>Крепость кальяна</h1>
+        <hr>
+       <div class="tabaks"> 
+        <div class="tabak">
+          <p class="name_tabak">Starline</p>
+          <img class="kart_kalyan" src="img/starline.png">
+          <p id="p1"> Лёгкий кальянный табак высшего качества с яркой ароматикой и богатой палитрой вкусов. Является продуктом российского производителя Darkside Corporation</p>
+          <div class="group" id="group1">
+           <input class="inp" type="radio" name="rb" id="rb1" value="Starline"/>
+           <label for="rb1">Выбрать</label>
+          </div> 
+        </div>
+        <div class="tabak">
+          <p class="name_tabak">MustHave</p>
+          <img class="kart_kalyan" src="img/musthave.jpeg">
+          <p id="p2">  Cбалансированная средняя крепость, яркая натуральная ароматика и широкий ассортимент, среди которого каждый может найти аромат по своим предпочтениям</p>
+          <div class="group" id="group2">
+           <input class="inp" type="radio" name="rb" id="rb2" value="MustHave"/>
+           <label for="rb2">Выбрать</label>
+          </div>
+        </div>
+        <div class="tabak">
+          <p class="name_tabak">Darkside</p>
+          <img class="kart_kalyan" src="img/Darkside.jpg">
+          <p> Универсальный табак с богатой коллекцией ароматов с неповторимым фирменным привкусом листа Burley. Darkside позволяет добиться золотой середины в сочетании благородного привкуса сырья и яркого аромата.</p>
+          <div class="group" >
+           <input class="inp" type="radio" name="rb" id="rb3" value="Darkside"/>
+           <label for="rb3">Выбрать</label>
+          </div>
+        </div>
+        <div class="tabak">
+          <p class="name_tabak">BlackBurn</p>
+          <img class="kart_kalyan" src="img/blackburn.jpg">
+          <p> Уникальный смоки-продукт, который позволяет отнести его к разряду премиум-табаков. Сбалансированный вкус,натуральная крепость, стойкий аромат, используется высококачественный табачный лист Burley.</p>
+          <div class="group">
+            <input class="inp" type="radio" name="rb" id="rb4" value="BlackBurn"/>
+            <label for="rb4">Выбрать</label>
+          </div>
+        </div>
+       </div>
+        <h1 style="padding-top: 10%; clear: left">Добавить холодок (Supernova)?</h1>
+        <hr>
+        <img id="morfius" src="img/morfius.jpg">
+        <div class="group2">
+          <input class="ho" type="radio" name="holod" id="rb5" value="Да"/>
+          <label for="rb5">Да</label>
+          <input class="ho" type="radio" name="holod" id="rb6" value="Нет"/>
+          <label for="rb6">Нет</label>
+        </div>
+      <div id="komm">
+        <h1 style="margin-top: 50px; clear: none;">Комментарий</h1>
+        <hr>
+       <div>
+        <p id="kom">Напишите ваши пожелания:</p>
+        <textarea name="comments" cols="20" rows="4" maxlength="300" placeholder="Есть пожелания? Пиши:"></textarea>
+       </div>
+        <button type="submit" id="zakaz">Заказать</button>
+      </div>
+      </form>
+      <form id="kalyan_karta">
+        <h1>Сезонные предложения</h1>
+        <hr>
+        <div class="block">
+          <img class="img_mix" src="img/wild.jpg">
+          <h1 class="nazvan">1001 ночь</h1>
+          <p class="opisan">Нежный чай Эрл Грей с ароматом цветов, яблока и грушы. В миксе придает интересные нотки и оставляет непривычное послевкусие.</p>
+          <p id="tegi">#Травянистый #Фруктовый #Кислый</p>
+          <p class="holo">Добавить холодок:
+             <input type="radio" name="hol" value="Да"/>Да
+             <input type="radio" name="hol" value="Нет"/>Нет
+          </p>
+          <button type="submit" class="zakazz">Выбрать</button>
+        </div>
+        <div class="block">
+          <img class="img_mix" src="img/wild.jpg">
+          <h1 class="nazvan">Цветущий сад</h1>
+          <p class="opisan">Сочетание зелёных фруктов, погружают вас в летнюю атмосферу цветущего сада, а лёгкая кислинка лимона и лайма, придают свежесть вашей прогулке</p>
+          <p id="tegi">#Фруктовый #Кислый</p>
+          <p class="holo">Добавить холодок:
+             <input type="radio" name="hol" value="Да"/>Да
+             <input type="radio" name="hol" value="Нет"/>Нет
+          </p>
+          <button class="zakazz">Выбрать</button>
+        </div>
+        <div class="block">
+          <img class="img_mix" src="img/wild.jpg">
+          <h1 class="nazvan">Клубничное Рафаэлло</h1>
+          <p class="opisan">Замечательный десерт в виде творожных шариков из печенья, с начинкой из свежей клубники и обкатанные в кокосовой стружке.</p>
+          <p id="tegi">#Десертный #Ягодный #Сладкий</p>
+          <p class="holo">Добавить холодок:
+             <input type="radio" name="hol" value="Да"/>Да
+             <input type="radio" name="hol" value="Нет"/>Нет
+          </p>
+          <button class="zakazz" style="top:6%;">Выбрать</button>
+        </div>
+        <h1>Кальянная карта</h1>
+        <hr>
+        <div class="block">
+          <img class="img_mix" src="img/wild.jpg">
+          <h1 class="nazvan">Ягодный пломбир</h1>
+          <p class="opisan">Мороженное из лесных ягод с добавлением сладкой черники и чуть кислой дикой малины</p>
+          <p id="tegi">#Ягодный #Легкий</p>
+          <p class="holo">Добавить холодок:
+             <input type="radio" name="hol" value="Да"/>Да
+             <input type="radio" name="hol" value="Нет"/>Нет
+          </p>
+          <button class="zakaz_1" style="top:10%">Выбрать</button>
+        </div>
+        <div class="block">
+          <img class="img_mix" src="img/wild.jpg">
+          <h1 class="nazvan">Черничный шейх</h1>
+          <p class="opisan">Коктейль из тропических фруктов украшенный спелой черникой</p>
+          <p id="tegi">#Ягодный #Фрутовый #Легкий</p>
+          <p class="holo">Добавить холодок:
+             <input type="radio" name="hol" value="Да"/>Да
+             <input type="radio" name="hol" value="Нет"/>Нет
+          </p>
+          <button class="zakaz_1">Выбрать</button>
+        </div>
+        <div class="block">
+          <img class="img_mix" src="img/wild.jpg">
+          <h1 class="nazvan">Куба либре</h1>
+          <p class="opisan">Вкус всеми известной колы с добавление сока лайма, долек апельсина и горстью дикой клюквы</p>
+          <p id="tegi">#Цитрусовый #Ягодный #Кислый #Легкий</p>
+          <p class="holo">Добавить холодок:
+             <input type="radio" name="hol" value="Да"/>Да
+             <input type="radio" name="hol" value="Нет"/>Нет
+          </p>
+          <button class="zakaz_1" style="top:10%">Выбрать</button>
+        </div>
+        <div class="block">
+          <img class="img_mix" src="img/wild.jpg">
+          <h1 class="nazvan">Бельгийский завтрак</h1>
+          <p class="opisan">Домашние вафли с цитрусовым джемом</p>
+          <p id="tegi">#Цитрусовый #Десертный #Легкий</p>
+          <p class="holo">Добавить холодок:
+             <input type="radio" name="hol" value="Да"/>Да
+             <input type="radio" name="hol" value="Нет"/>Нет
+          </p>
+          <button class="zakaz_1">Выбрать</button>
+        </div>
+        <div class="block">
+          <img class="img_mix" src="img/wild.jpg">
+          <h1 class="nazvan">Вишневый сад</h1>
+          <p class="opisan">Вкус домашнего компота из кислой вишни, сладкой черники и дикой клюквы</p>
+          <p id="tegi">#Ягодный #Кислый</p>
+          <p class="holo">Добавить холодок:
+             <input type="radio" name="hol" value="Да"/>Да
+             <input type="radio" name="hol" value="Нет"/>Нет
+          </p>
+          <button class="zakaz_1" style="top:10%">Выбрать</button>
+        </div>
+        <div class="block">
+          <img class="img_mix" src="img/wild.jpg">
+          <h1 class="nazvan">Бомбяо</h1>
+          <p class="opisan">Арбузный фреш с соком кислого граната и дикими лесными ягодами</p>
+          <p id="tegi">#Ягодный #Кислый</p>
+          <p class="holo">Добавить холодок:
+             <input type="radio" name="hol" value="Да"/>Да
+             <input type="radio" name="hol" value="Нет"/>Нет
+          </p>
+          <button class="zakaz_1">Выбрать</button>
+        </div>
+        <div class="block">
+          <img class="img_mix" src="img/wild.jpg">
+          <h1 class="nazvan">Мальдивы</h1>
+          <p class="opisan">Вкус кислого ананаса со сливочным кокосом и добавлением нежного банана</p>
+          <p id="tegi">#Тропический #Фрутовый #Сладкий</p>
+          <p class="holo">Добавить холодок:
+             <input type="radio" name="hol" value="Да"/>Да
+             <input type="radio" name="hol" value="Нет"/>Нет
+          </p>
+          <button class="zakaz_1" style="top:10%">Выбрать</button>
+        </div>
+        <div class="block">
+          <img class="img_mix" src="img/wild.jpg">
+          <h1 class="nazvan">Зеленый лимонад</h1>
+          <p class="opisan">Невероятное сочетание киви с травяной ноткой фейхоа с добавлением кислого яблока</p>
+          <p id="tegi">#Травянистый #Фрутовый</p>
+          <p class="holo">Добавить холодок:
+             <input type="radio" name="hol" value="Да"/>Да
+             <input type="radio" name="hol" value="Нет"/>Нет
+          </p>
+          <button class="zakaz_1" style="top:10%">Выбрать</button>
+        </div>
+        <div class="block">
+          <img class="img_mix" src="img/wild.jpg">
+          <h1 class="nazvan">Илон Маск</h1>
+          <p class="opisan">Всеми известный цитрусовый коктейль космополитон с соком кислой вишни</p>
+          <p id="tegi">#Цитрусовый #Ягодный #Кислый</p>
+          <p class="holo">Добавить холодок:
+             <input type="radio" name="hol" value="Да"/>Да
+             <input type="radio" name="hol" value="Нет"/>Нет
+          </p>
+          <button class="zakaz_1" style="top:10%">Выбрать</button>
+        </div>
+        <div class="block">
+          <img class="img_mix" src="img/wild.jpg">
+          <h1 class="nazvan">Заводной апельсин</h1>
+          <p class="opisan">Терпкость грейпфрута приправленная нежным киви с кислой ноткой лимона</p>
+          <p id="tegi">#Цитрусовый #Кислый</p>
+          <p class="holo">Добавить холодок:
+             <input type="radio" name="hol" value="Да"/>Да
+             <input type="radio" name="hol" value="Нет"/>Нет
+          </p>
+          <button class="zakaz_1" style="top:10%">Выбрать</button>
+        </div>
+        <div class="block">
+          <img class="img_mix" src="img/wild.jpg">
+          <h1 class="nazvan">Назад в СССР</h1>
+          <p class="opisan">Свежие лимонные вафли с нежной крем-содой заставят вас проникнуться духом
+            советских времен</p>
+          <p id="tegi">#Десертный #Кислый #Сладкий</p>
+          <p class="holo">Добавить холодок:
+             <input type="radio" name="hol" value="Да"/>Да
+             <input type="radio" name="hol" value="Нет"/>Нет
+          </p>
+          <button class="zakaz_1" style="top:10%">Выбрать</button>
+        </div>
+        <div class="block">
+          <img class="img_mix" src="img/wild.jpg">
+          <h1 class="nazvan">В гостях у бабушки</h1>
+          <p class="opisan">Овсяные печенья по бабушкиному рецепту с вкуснейшим виноградом и сладкой
+            сгущенкой</p>
+          <p id="tegi">#Десертный #Сладкий #Фруктовый</p>
+          <p class="holo">Добавить холодок:
+             <input type="radio" name="hol" value="Да"/>Да
+             <input type="radio" name="hol" value="Нет"/>Нет
+          </p>
+          <button class="zakaz_1" style="top:10%">Выбрать</button>
+        </div>
+        <div class="block">
+          <img class="img_mix" src="img/wild.jpg">
+          <h1 class="nazvan">Апельсиновый раф</h1>
+          <p class="opisan">Нежно-сливочный раф с апельсином</p>
+          <p id="tegi">#Цитрусовый #Напитки</p>
+          <p class="holo">Добавить холодок:
+             <input type="radio" name="hol" value="Да"/>Да
+             <input type="radio" name="hol" value="Нет"/>Нет
+          </p>
+          <button class="zakaz_1">Выбрать</button>
+        </div>
+        <div class="block">
+          <img class="img_mix" src="img/wild.jpg">
+          <h1 class="nazvan">Таежный киберпанк</h1>
+          <p class="opisan">Зеленый жасминовый чай и легкий ароматом хвойного леса с добавлением черники с
+            цукатами</p>
+          <p id="tegi">#Травянистый #Напитки</p>
+          <p class="holo">Добавить холодок:
+             <input type="radio" name="hol" value="Да"/>Да
+             <input type="radio" name="hol" value="Нет"/>Нет
+          </p>
+          <button class="zakaz_1" style="top:10%">Выбрать</button>
+        </div>
+        <div class="block">
+          <img class="img_mix" src="img/wild.jpg">
+          <h1 class="nazvan">Азиатский личи</h1>
+          <p class="opisan">Терпкий киви с добавлением сладкой бузины и травяным вкусом базилика</p>
+          <p id="tegi">#Травянистый #Ягодный #Фруктовый</p>
+          <p class="holo">Добавить холодок:
+             <input type="radio" name="hol" value="Да"/>Да
+             <input type="radio" name="hol" value="Нет"/>Нет
+          </p>
+          <button class="zakaz_1" style="top:10%">Выбрать</button>
+        </div>
+        <div class="block">
+          <img class="img_mix" src="img/wild.jpg">
+          <h1 class="nazvan">Green Хаос</h1>
+          <p class="opisan">Неожиданное сочетание сладкой сгущенки, с хвоей и ароматным базиликом</p>
+          <p id="tegi">#Травянистый #Десертный</p>
+          <p class="holo">Добавить холодок:
+             <input type="radio" name="hol" value="Да"/>Да
+             <input type="radio" name="hol" value="Нет"/>Нет
+          </p>
+          <button class="zakaz_1" style="top:10%">Выбрать</button>
+        </div>
+        <div class="block">
+          <img class="img_mix" src="img/wild.jpg">
+          <h1 class="nazvan">2007</h1>
+          <p class="opisan">Чупа-чупс с виноградом и кристалликами кислой малины, который растворился в
+            ягодной газировке</p>
+          <p id="tegi">#Ягодный</p>
+          <p class="holo">Добавить холодок:
+             <input type="radio" name="hol" value="Да"/>Да
+             <input type="radio" name="hol" value="Нет"/>Нет
+          </p>
+          <button class="zakaz_1" style="top:10%">Выбрать</button>
+        </div>
+        <div class="block">
+          <img class="img_mix" src="img/wild.jpg">
+          <h1 class="nazvan">Индийский султан</h1>
+          <p class="opisan">Персиковое пюре с известным коктейлем пино колада и добавление зеленого чая для
+            приятной терпкости</p>
+          <p id="tegi">#Травянистый #Тропический #Фруктовый</p>
+          <p class="holo">Добавить холодок:
+             <input type="radio" name="hol" value="Да"/>Да
+             <input type="radio" name="hol" value="Нет"/>Нет
+          </p>
+          <button class="zakaz_1" style="top:12%">Выбрать</button>
+        </div>
+        <div class="block">
+          <img class="img_mix" src="img/wild.jpg">
+          <h1 class="nazvan">Lemon Baby</h1>
+          <p class="opisan">Ягодное мороженное с грейпфрутом, политое лимонным сиропом и украшенное
+            кольцами ананаса</p>
+          <p id="tegi">#Цитрусовый #Ягодный #Фруктовый #Кислый</p>
+          <p class="holo">Добавить холодок:
+             <input type="radio" name="hol" value="Да"/>Да
+             <input type="radio" name="hol" value="Нет"/>Нет
+          </p>
+          <button class="zakaz_1" style="top:10%">Выбрать</button>
+        </div>
+        <div class="block">
+          <img class="img_mix" src="img/wild.jpg">
+          <h1 class="nazvan">Ягодный эль</h1>
+          <p class="opisan">Десерт-корзинка с ягодным джемом внутри украшенная ирландским кремом и
+            свежевыжатым виноградным соком</p>
+          <p id="tegi">#Десертный #Ягодный #Фруктовый</p>
+          <p class="holo">Добавить холодок:
+             <input type="radio" name="hol" value="Да"/>Да
+             <input type="radio" name="hol" value="Нет"/>Нет
+          </p>
+          <button class="zakaz_1" style="top:10%">Выбрать</button>
+        </div>
+      </form>
+</body>
+</html>

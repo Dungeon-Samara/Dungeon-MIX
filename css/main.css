@@ -1,0 +1,1066 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+:root {
+	--index: calc(1vw + 1vh);
+	--gallery-gap: calc(var(--index) * 7.5)
+}
+/*Шрифты*/
+@font-face {
+	font-family: kamerik-3d;
+	src: url(../fonts/kamerik205-heavy.woff2);
+	font-weight: 900;
+}
+@font-face {
+	font-family: merriweather-italic-3d;
+	src: url(../fonts/merriweather-regular-italic.woff2);
+}
+
+body{
+    background-color: black;
+    color: white;
+    width: 100%;
+}
+
+.dungeon{
+    margin-top: 1%;
+    width: 100%;
+    height:150px;
+    max-height: 300px;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: inset -2px -2px 30px grey;
+}
+.dungeon>h1{
+    font-family: kamerik-3d;
+    text-align: center;
+    padding-top: 2%;
+}
+
+#knopki{
+    margin-top:30px;
+    width: 100%;
+    height:15vh;
+}
+.knopka{
+    margin-inline-start: 10px ;
+    width:48%;
+    position: absolute;
+    height: 100px;
+    text-align: center;
+    color:grey;
+    background-color: rgb(41, 41, 41);
+    border: 3px solid rgb(41, 41, 41);
+    border-radius: 10px;
+}
+.knopka:hover {
+	transform: scale(1.01);
+  }
+
+.knopka>p{
+    font-family: merriweather-italic-3d;
+    font-size: 32px;
+    vertical-align: middle;
+    margin-top:20px;
+}
+
+.knopka>img{
+    width:10vh;
+    height:8vh;
+    margin-top: 15px;
+    float: left;
+    position: relative;
+    left: 18%;
+}
+
+#mix{
+    margin-left:51%;
+}
+
+h1{
+  margin-top: 30px;
+}
+
+form{
+ margin-top: 100px;
+ height:200px;
+
+}
+.tags {
+    text-align: center;
+    margin-top:20px;
+  }
+  
+  .tag {
+    display: inline-block;   
+    margin-right: 5px;
+    padding: 5px 10px;
+    border: 1px solid #eee;
+    color:white;
+    background: black;
+    border-radius: 15px;  
+  }
+
+  .copytag{
+      display: inline-block;   
+      margin-right:5px;
+      padding: 5px 10px;
+      border: 1px solid #eee;
+      color:white;
+      background: black;
+      border-radius: 15px;  
+  }
+  
+  .tag:active {
+    background: white;
+    color: black; 
+    transition: background 0s;
+  }
+  
+  .selected-tags {
+    padding-top: 5px;
+    overflow-y: auto;
+    height: 160px;   
+  }
+  .tabak{
+    width: 275px;
+    height: 800px;
+    text-align: center;
+    float: left;
+    margin-left: 50px;
+    margin-top: 30px;
+    font-size: 24px;
+  }
+  .kart_kalyan{
+    width: 275px;
+    height: 300px;
+    text-align: center;
+    position:relative;
+    margin-top: 10px;
+  }
+  
+  .name_tabak{
+    font-size: 26px;
+  }
+
+  #group1,#p1{
+    padding-top: 30px;
+  }
+
+  #group2,#p2{
+    padding-top: 42px;
+  }
+
+  .group {
+    margin-top: 20px;
+  }
+  
+  .inp[type="radio"],.ho[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+  }
+  label {
+    position: relative;
+    padding-top: 10px;
+    margin-right: 1em;
+    padding-left: 2em;
+    padding-right: 1em;
+    line-height: 2;
+    cursor: pointer;
+    &:before {
+      box-sizing: border-box;
+      content: " ";
+      position: absolute;
+      top: 0.3em;
+      left: 0;
+      display: block;
+      width: 1.4em;
+      height: 1.4em;
+      border: 2px solid white;
+      border-radius: .25em;
+      z-index: -1;
+    }
+  }
+  .inp[type="radio"] + label::before,.ho[type="radio"] + label::before {
+    border-radius: 1em;
+  }
+  /* Checked */
+  .inp[type="radio"]:checked + label,.ho[type="radio"]:checked + label {
+    padding-left: 1em;
+    color: black;
+    &:before {
+      top: 0;
+      width: 100%;
+      height: 2em;
+      background-color: orange;
+    }
+  }
+  
+  /* Transition */
+  label,
+  label::before {
+    -webkit-transition: .25s all ease;
+    -o-transition: .25s all ease;
+    transition: .25s all ease;
+  }
+
+  #morfius{
+    position: relative;
+    left:30%;
+    margin-top: 20px;
+    right: 40%;
+    width: 500px;
+    height: 500px;
+  }
+
+  .group2{
+    margin-top: 30px;
+    margin-left: 350px;
+    height: 510px;
+    font-size: 24px;
+  }
+
+ .group2>.ho{
+  float: left;
+  position: relative;
+ }
+
+  #rb6{
+    position: relative;
+   margin-inline-start: 350px;
+  }
+
+  #kom{
+    font-size: 24px;
+    margin-left: 10px; 
+    margin-top: 40px;
+    position: relative;
+    float: left;
+  }
+
+  textarea{
+    resize: none;
+    width: 600px;
+    height:50px;
+    margin-top: 30px;
+    font-size: 18px;
+    margin-left: 10px;
+    background-color: black;
+    color: #eee;
+    border: 2px solid #eee;
+  }
+
+  #zakaz{
+    position: absolute;
+    margin-top: 150px;
+    margin-left: 42%;
+    color: #eee;
+    font-size: 16px;
+    background-color: black;
+    border: 2px solid white;
+    border-radius: 10px;
+    width:150px;
+    height: 50px;
+  }
+  #krepost{
+    display: none;
+    height: 230px;
+  }
+
+  .block{
+    width: 100%;
+    height: 110%;
+    background-color: rgb(41, 41, 41);;
+    margin-top: 50px;
+  }
+  .img_mix{
+    width: 25%;
+    height:100%;
+    float: left;
+    position: relative;
+  }
+
+  .nazvan{
+    text-align: center;
+  }
+
+  .opisan,#tegi,.holo{
+    position: relative;
+    width:98%;
+    left: 20px;
+    font-size: 18px;
+    padding-top: 1%;
+  }
+  
+  .zakaz_1{
+    position: relative;
+    text-align: center;
+    color: #eee;
+    left: 35%;
+    font-size: 16px;
+    background-color:  rgb(41, 41, 41);
+    border: 2px solid white;
+    border-radius: 10px;
+    width:100px;
+    height: 40px;
+  }
+
+  .zakazz{
+    position: relative;
+    text-align: center;
+    color: #eee;
+    left: 35%;
+    font-size: 16px;
+    background-color:  rgb(41, 41, 41);
+    border: 2px solid white;
+    border-radius: 10px;
+    width:100px;
+    height: 40px;
+  }
+
+  #komm{
+    height:500px;
+  }
+
+  /* Для экранов от 320px до 576px (смартфоны) */
+@media screen and (min-width: 320px) and (max-width: 576px) {
+
+  .dungeon{
+    margin-top: 1%;
+    width: 100%;
+    height:120px;
+    max-height: 300px;
+}
+.dungeon>h1{
+    padding-top: 2%;
+}
+
+#kart{
+  margin-left: 3%;
+}
+
+#knopki{
+    margin-top:30px;
+    width: 100%;
+    height:5vh;
+}
+.knopka{
+    margin-left: 1% ;
+    width:45%;
+    height: 100px;
+}
+
+.knopka>p{
+    font-size: 1.3em;
+    margin-top:25px;
+    margin-left: 20px;
+    text-align: center;
+}
+
+.knopka>img{
+    width:25%;
+    height:35%;
+    float: left;
+    margin-top: 30px;
+    left: 5%;
+}
+
+#mix{
+    margin-left:51%;
+}
+
+h1{
+  margin-top: 30px;
+  font-size: 1.3em;
+}
+
+form{
+ margin-top: 100px;
+ height:200px;
+
+}
+.tags {
+    margin-top:2%;
+  }
+  
+  .tag { 
+    margin-right: 2%;
+    margin-top: 2%;   
+  }
+
+  .copytag{   
+      margin-right:2%;
+  }
+  
+  .selected-tags {
+    overflow-y: auto;
+    height: 160px; 
+  }
+  .tabak{
+    width: 50%;
+    height: 40%;
+    margin-left: 25%;
+    margin-top: 5%;
+    font-size: 1.2em;
+  }
+  .kart_kalyan{
+    width: 100%;
+    height: 100%;
+    margin-top: 10px;
+  }
+  
+  .name_tabak{
+    font-size: 1.2em;
+  }
+
+  #group1,#p1{
+    padding-top: 3%;
+  }
+
+  #group2,#p2{
+    padding-top: 5%;
+  }
+
+  .group {
+    margin-top: 5%;
+  }
+
+  label {
+    padding-top: 3%;
+    margin-right: 1em;
+    padding-left: 2.5em;
+    padding-right: 1em;
+    line-height: 2;
+    &:before {
+      top: 0.2em;
+      left: 0;
+      width: 1.4em;
+      height: 1.4em;
+    }
+  }
+  .inp[type="radio"] + label::before {
+    border-radius: 1em;
+  }
+  /* Checked */
+  .inp[type="radio"]:checked + label {
+    padding-left: 1em;
+    &:before {
+      top: 0;
+      width: 100%;
+      height: 2em;
+    }
+  }
+ 
+  #morfius{
+    margin-top: 5%;
+    right: 60%;
+    width: 50%;
+    height: 70%;
+  }
+
+  .group2{
+    margin:0%;
+    padding: 0%;
+    margin-top: 10%;
+    width:100%;
+    height: 10%;
+    font-size: 1.2em;
+  }
+
+  #rb6{
+    margin-left: 12%;
+   margin-inline-end: 10%;
+  }
+
+  #komm{
+    width: 100%;
+    height: 110%;
+  }
+
+  #kom{
+    font-size: 1.2em;
+    margin-left: 1%; 
+    margin-top: 4%;
+  }
+
+  textarea{
+    resize: none;
+    width: 95%;
+    height:10%;
+    margin-top: 3%;
+    font-size: 1em;
+    margin-left: 2%;
+  }
+
+  #zakaz{
+    margin-top: 5%;
+    margin-left: 35%;
+    font-size: 1.1em;
+    border-radius: 10px;
+    width:40%;
+    height: 8%;
+    margin-bottom: 2%;
+  }
+
+  .block{
+    width: 100%;
+    height: 90%;
+    margin-top: 30px;
+  }
+  .img_mix{
+    width: 30%;
+    height:100%;
+  }
+
+  .nazvan{
+    padding-top: 2%;
+    font-size: 1em;
+  }
+
+  .opisan,#tegi,.holo{
+    width:98%;
+    left: 2%;
+    font-size: 0.8em;
+    padding-top: 2%;
+  }
+  
+  .zakaz_1{
+    left: 30%;
+    top:18%;
+    font-size: 0.6em;
+    border-radius: 10px;
+    width:18%;
+    height: 13%;
+  }
+  
+  .zakazz{
+    left: 30%;
+    float: top;
+    top:3%;
+    font-size: 0.6em;
+    border-radius: 10px;
+    width:18%;
+    height: 13%;
+  }
+
+  }
+  
+  /* Для экранов от 577px до 768px (планшеты) */
+  @media screen and (min-width: 577px) and (max-width: 768px) {
+ 
+    .dungeon{
+      margin-top: 1%;
+      width: 100%;
+      height:120px;
+  }
+  .dungeon>h1{
+      padding-top: 2%;
+      font-size: 1.7em;
+  }
+  
+  #kart{
+    margin-left: 3%;
+  }
+  
+  #knopki{
+      margin-top:30px;
+      width: 100%;
+      height:5vh;
+  }
+  .knopka{
+      margin-left: 1% ;
+      width:45%;
+      height: 100px;
+  }
+  
+  .knopka>p{
+      font-size: 1.5em;
+      margin-top:25px;
+      margin-left: 20px;
+      text-align: center;
+  }
+  
+  .knopka>img{
+      width:18%;
+      height:35%;
+      float: left;
+      margin-top: 30px;
+      left: 5%;
+  }
+  
+  #mix{
+      margin-left:51%;
+  }
+  
+  h1{
+    margin-top: 30px;
+    font-size: 1.7em;
+  }
+  
+  form{
+   margin-top: 100px;
+   height:200px;
+  
+  }
+  .tags {
+      margin-top:2%;
+    }
+
+  #tag_none{
+    font-size: 1.2em;
+  }
+    
+    .tag { 
+      margin-right: 2%;
+      font-size: 1em;
+      margin-top: 2%;   
+    }
+  
+    .copytag{   
+        margin-right:2%;
+        font-size: 1em;
+    }
+    
+    .selected-tags {
+      overflow-y: auto;
+      height: 100px; 
+    }
+    .tabak{
+      width: 50%;
+      height: 40%;
+      margin-left: 25%;
+      margin-top: 5%;
+      font-size: 1.4em;
+    }
+    .kart_kalyan{
+      width: 100%;
+      height: 100%;
+      margin-top: 10px;
+    }
+    
+    .name_tabak{
+      font-size: 1.5em;
+    }
+  
+    #group1,#p1{
+      padding-top: 3%;
+    }
+  
+    #group2,#p2{
+      padding-top: 5%;
+    }
+  
+    .group {
+      margin-top: 5%;
+    }
+  
+    label {
+      padding-top: 1%;
+      margin-right: 1em;
+      padding-left: 2.5em;
+      padding-right: 1em;
+      line-height: 2;
+      &:before {
+        top: 0.2em;
+        left: 0;
+        width: 1.4em;
+        height: 1.4em;
+      }
+    }
+    .inp[type="radio"] + label::before {
+      border-radius: 1em;
+    }
+    /* Checked */
+    .inp[type="radio"]:checked + label {
+      padding-left: 1em;
+      &:before {
+        top: 0;
+        width: 100%;
+        height: 2em;
+      }
+    }
+   
+    #morfius{
+      margin-top: 5%;
+      right: 70%;
+      width: 50%;
+      height: 100%;
+    }
+  
+    .group2{
+      margin:0%;
+      padding: 0%;
+      margin-top: 12%;
+      width:100%;
+      height: 20%;
+      font-size: 1.4em;
+    }
+  
+    #rb6{
+      margin-left: 25%;
+     margin-inline-end: 10%;
+    }
+  
+    #komm{
+      width: 100%;
+      height: 300px;
+    }
+  
+    #kom{
+      font-size: 1.5em;
+      margin-left: 1%; 
+      margin-top: 4%;
+    }
+  
+    textarea{
+      resize: none;
+      width: 95%;
+      height:10%;
+      margin-top: 3%;
+      font-size: 1.4em;
+      margin-left: 2%;
+    }
+  
+    #zakaz{
+      margin-top: 3%;
+      margin-left: 35%;
+      font-size: 1.3em;
+      border-radius: 10px;
+      width:40%;
+      height: 8%;
+      margin-bottom: 2%;
+    }
+  
+    .block{
+      width: 100%;
+      height: 90%;
+      margin-top: 30px;
+    }
+    .img_mix{
+      width: 30%;
+      height:100%;
+    }
+  
+    .nazvan{
+      padding-top: 2%;
+      font-size: 1.2em;
+    }
+  
+    .opisan,#tegi,.holo{
+      width:98%;
+      left: 2%;
+      font-size: 1em;
+      padding-top: 1%;
+    }
+    
+    .zakaz_1{
+      left: 30%;
+      top:18%;
+      font-size: 0.9em;
+      border-radius: 10px;
+      width:18%;
+      height: 13%;
+    }
+    
+    .zakazz{
+      left: 30%;
+      float: top;
+      top:3%;
+      font-size: 0.9em;
+      border-radius: 10px;
+      width:18%;
+      height: 13%;
+    }
+  }
+  
+  /* Для экранов от 769px до 992px */
+  @media screen and (min-width: 769px) and (max-width: 992px) {
+ 
+    .dungeon{
+      margin-top: 1%;
+      width: 100%;
+      height:120px;
+  }
+  .dungeon>h1{
+      padding-top: 2%;
+      font-size: 1.7em;
+  }
+  
+  #kart{
+    margin-left: 3%;
+  }
+  
+  #knopki{
+      margin-top:30px;
+      width: 100%;
+      height:5vh;
+  }
+  .knopka{
+      margin-left: 1% ;
+      width:45%;
+      height: 100px;
+  }
+  
+  .knopka>p{
+      font-size: 1.7em;
+      margin-top:25px;
+      margin-left: 20px;
+      text-align: center;
+  }
+  
+  .knopka>img{
+      width:15%;
+      height:35%;
+      float: left;
+      margin-top: 30px;
+      left: 5%;
+  }
+  
+  #mix{
+      margin-left:51%;
+  }
+  
+  h1{
+    margin-top: 30px;
+    font-size: 1.7em;
+  }
+  
+  form{
+   margin-top: 100px;
+   height:200px;
+  
+  }
+  .tags {
+      margin-top:2%;
+    }
+
+  #tag_none{
+    font-size: 1.2em;
+  }
+    
+    .tag { 
+      margin-right: 2%;
+      font-size: 1em;
+      margin-top: 2%;
+    }
+  
+    .copytag{   
+        margin-right:2%;
+        font-size: 1em;
+    }
+    
+    .selected-tags {
+      overflow-y: auto;
+      height: 100px; 
+    }
+    .tabak{
+      width: 50%;
+      height: 40%;
+      margin-left: 25%;
+      margin-top: 5%;
+      font-size: 1.4em;
+    }
+    .kart_kalyan{
+      width: 80%;
+      height: 80%;
+      margin-top: 10px;
+    }
+    
+    .name_tabak{
+      font-size: 1.5em;
+    }
+  
+    #group1,#p1{
+      padding-top: 3%;
+    }
+  
+    #group2,#p2{
+      padding-top: 5%;
+    }
+  
+    .group {
+      margin-top: 5%;
+    }
+  
+    label {
+      padding-top: 1%;
+      margin-right: 1em;
+      padding-left: 2.5em;
+      padding-right: 1em;
+      line-height: 2;
+      &:before {
+        top: 0.2em;
+        left: 0;
+        width: 1.4em;
+        height: 1.4em;
+      }
+    }
+    .inp[type="radio"] + label::before {
+      border-radius: 1em;
+    }
+    /* Checked */
+    .inp[type="radio"]:checked + label {
+      padding-left: 1em;
+      &:before {
+        top: 0;
+        width: 100%;
+        height: 2em;
+      }
+    }
+   
+    #morfius{
+      margin-top: 5%;
+      right: 50%;
+      width: 40%;
+      height: 120%;
+    }
+  
+    .group2{
+      margin:0%;
+      padding: 0%;
+      margin-top: 12%;
+      width:100%;
+      height: 20%;
+      font-size: 1.4em;
+    }
+  
+    #rb6{
+      margin-left: 25%;
+     margin-inline-end: 10%;
+    }
+  
+    #komm{
+      width: 100%;
+      height: 300px;
+    }
+  
+    #kom{
+      font-size: 1.5em;
+      margin-left: 1%; 
+      margin-top: 4%;
+    }
+  
+    textarea{
+      resize: none;
+      width: 95%;
+      height:10%;
+      margin-top: 3%;
+      font-size: 1.4em;
+      margin-left: 2%;
+    }
+  
+    #zakaz{
+      margin-top: 3%;
+      margin-left: 35%;
+      font-size: 1.3em;
+      border-radius: 10px;
+      width:40%;
+      height: 8%;
+      margin-bottom: 2%;
+    }
+  
+    .block{
+      width: 100%;
+      height: 110%;
+      margin-top: 30px;
+    }
+    .img_mix{
+      width: 30%;
+      height:100%;
+    }
+  
+    .nazvan{
+      padding-top: 2%;
+      font-size: 1.3em;
+    }
+  
+    .opisan,#tegi,.holo{
+      width:98%;
+      left: 2%;
+      font-size: 1.1em;
+      padding-top: 1%;
+    }
+    
+    .zakaz_1{
+      left: 30%;
+      top:18%;
+      font-size: 1em;
+      border-radius: 10px;
+      width:18%;
+      height: 13%;
+    }
+    
+    .zakazz{
+      left: 30%;
+      float: top;
+      top:3%;
+      font-size: 1em;
+      border-radius: 10px;
+      width:18%;
+      height: 13%;
+    }
+  }
+  
+  /* Для экранов от 993px и выше (десктоп) */
+  @media screen and (min-width: 993px) {
+  
+  /* стили для больших экранов */
+  #morfius{
+    margin-top: 5%;
+    right: 50%;
+    width: 40%;
+    height: 120%;
+  }
+
+  .group2{
+    margin:0%;
+    padding: 0%;
+    margin-top: 12%;
+    width:100%;
+    height: 20%;
+    font-size: 1.4em;
+  }
+
+  #komm{
+    width: 100%;
+    height: 500px;
+  }
+
+  #rb6{
+    margin-left: 30%;
+   margin-inline-end: 10%;
+  }
+
+  #komm{
+    width: 100%;
+    height: 400px;
+  }
+
+  #kom{
+    font-size: 1.5em;
+    margin-left: 1%; 
+    margin-top: 4%;
+  }
+
+  textarea{
+    resize: none;
+    width: 95%;
+    height:10%;
+    margin-top: 3%;
+    font-size: 1.4em;
+    margin-left: 2%;
+  }
+
+  #zakaz{
+    margin-top: 3%;
+    margin-left: 30%;
+    font-size: 1.3em;
+    border-radius: 10px;
+    width:40%;
+    height: 8%;
+    margin-bottom: 2%;
+  }
+  }
