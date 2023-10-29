@@ -174,11 +174,28 @@ const authConfig = {
   redirectUri: 'https://dungeon-samara.github.io/Dungeon-MIX/'
 };
 
+// Константа с URL API
+const API_URL = 'https://www.amocrm.ru/api/v2';
+
+// Базовый URL прокси 
+const PROXY = 'https://api.allorigins.win/raw?url=';
+
+// Функция для запросов через прокси
+async function fetchViaProxy(endpoint) {
+
+  const fullUrl = PROXY + encodeURIComponent(API_URL + endpoint);
+  
+  const response = await fetch(fullUrl);  
+
+  return await response.json();
+
+}
+
 // Функция обмена кода на токен
 async function exchangeCode(code) {
 
   // Запрос на получение токена 
-  const response = await fetch('https://www.amocrm.ru/oauth2/access_token', {
+  const response = await fetchViaProxy('https://www.amocrm.ru/oauth2/access_token', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -199,7 +216,7 @@ async function exchangeCode(code) {
 // Получение сделки по ID
 async function getLead(leadId, accessToken) {
 
-  const response = await fetch(`https://www.amocrm.ru/api/v2/leads/${leadId}`, {
+  const response = await fetchViaProxy(`https://www.amocrm.ru/api/v2/leads/${leadId}`, {
     headers: {
       Authorization: `Bearer ${accessToken}`
     }
@@ -212,7 +229,7 @@ async function getLead(leadId, accessToken) {
 // Обновление сделки
 async function updateLead(lead, accessToken) {
 
-  const response = await fetch(`https://www.amocrm.ru/api/v2/leads`, {
+  const response = await fetchViaProxy(`https://www.amocrm.ru/api/v2/leads`, {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${accessToken}`,  
