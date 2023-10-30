@@ -173,15 +173,19 @@ const authConfig = {
   clientSecret: 'o7hrkGhmGa2bFUPwnHQNRc0EsaRjiB4f5nYXCKe1pYWiL0n2wjtAkbqhTKzJsYtY', 
   redirectUri: 'https://dungeon-samara.github.io/Dungeon-MIX/'
 };
+// Пароль в открытом виде
+const password = 'zscPB6e7';
+
+// Хешируем пароль 
+const hash = CryptoJS.MD5(password).toString();
+
+const login = 'dungeonbron@gmail.com';
 
 // Константа с URL API
 const API_URL = 'https://www.amocrm.ru/api/v2/leads';
 
 // Базовый URL прокси 
 const PROXY = 'https://api.allorigins.win/raw?url=';
-
-const code = 'def502007d7452bcd667282784b11b916dcfdeed29ce41375448cac29ee319efb9448a87f7e4224caff0dcc02720bb31bf46b8997a74dfdfef1b08585257e2bdedfde3f089d7e386707af78393067c7aa31dccafc18687ec0d49f889ea8fdc645dae4d2d5c38c090b620110bc14af3e2b0e69fceec2fa3e9efc535199c6517d028902a7bd68170e7074aeb5ba6e32f348e11f0873c90a4264a212a800f028c89d4f8eed963525eba3b4fa2789d4048f4c66ffb461052abdcfcbd0ee4e25150039bb6dcb5e24b46b52cf5c7c6d539d524a952e07eaac9717c1eb207617e49604b4e9c8105238ea5d5e44e0932c6425cb964fc3897a37d33e3f60e634578603c933815c54b1263b42ae65eb8faa9e62f2eb1002b369eacd456387ba3f7f126ab32a4b1a878a15d2b8a27adba68fe54c2f68a4fe21305860110f21742a70416091586f535bc1ee9197d279538bf72a447d022fdc823cb2129ace52ceaed9fe879c18e35273759bf24624f105ccf230fe9aee4d30e7cb7c1743e29cc8b0a64a8ef38a59690beaca763767c4734f45cd84ba8ab3f495837a804c84d2c363b35e8a297ec961d2b0fb7fe11ebe656381b2185b8b36714f91bfbb0b46d4f723024a53ea9720819fb2cfc10e85c2a0afc6f5dc25a0fd53c85410585eec159b79d18f0ec5afc7eda850291be1cd556f93bd2058aacaba5b2447d962f2b978bbd67c00e0a'; 
-
 
 // Функция для запросов через прокси
 async function fetchViaProxy(endpoint) {
@@ -194,27 +198,31 @@ async function fetchViaProxy(endpoint) {
 
 }
 
-// Функция обмена кода на токен
-async function exchangeCode(code) {
+const authRequest = await fetch('https://www.amocrm.ru/private/api/auth/login', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    login: login,
+    hash: hash
+  })
+});
 
-  // Запрос на получение токена 
-  const response = await fetchViaProxy('https://www.amocrm.ru/oauth2/access_token', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      client_id: authConfig.clientId,
-      client_secret: authConfig.clientSecret,
-      grant_type: 'def502007210c1318063de79ede4055778343f53d818a7a18c4b298923f36924396c155f7efd9ca9f51582a6f0ebc72b23dca48c97c133daa0c807fc4fcc45e2b70c33fdb98cf730b121bee5ca5409daaed8db248a617bd7bf82fea6fbe57367f2d9b01bfd5b4f404439ae1a4e5bbe54579fb4ff3a39b8550d88293d277bdbd2ca85ec6fbea746fae8e140a43f873f99ba367de40f819439b536715fc620daad96e315689d1a21e70b52b142167dd2b2260ac016a3abb5a17225ed4f717bd27560fb444247e1ab306f2424879ac31cdf3d47742059553dee939909406013fa79d423e3fa88bc5b6452001b5b00867715810982dbc515d27ccab25d4bfac9505afb8806c2dfd75c45c2f1444db06edacecb9347e7a26a9df4c89c9ce60a096506c3295ecbf76ba0f527708bf055e761812f6b3129b8eadec82f87a200cc7e744175917b68918deb337ba646a4c6ba23e5b5f1cc8a45facd91979cda608cd516fbc33903f98d725eba49c3bd59ecf45356742a986da21c578713f5d8961dfbf9461cb7e2614291edbd07ad02226b251cdcbd54698ded4e9518055deba3e7a9d6b723a69f5e72b3891daa541abce74f9b451bfd92cef70980c3677665f327f339d4054632a31e3bdd059b343557bac3231504c44cb6828050d32643a84ab874074d489db8d00791c8e4cfb39ec9b744989ba273e4493a952e972c1275ca70944e',
-      redirect_uri: authConfig.redirectUri,
-      code: 'def502007d7452bcd667282784b11b916dcfdeed29ce41375448cac29ee319efb9448a87f7e4224caff0dcc02720bb31bf46b8997a74dfdfef1b08585257e2bdedfde3f089d7e386707af78393067c7aa31dccafc18687ec0d49f889ea8fdc645dae4d2d5c38c090b620110bc14af3e2b0e69fceec2fa3e9efc535199c6517d028902a7bd68170e7074aeb5ba6e32f348e11f0873c90a4264a212a800f028c89d4f8eed963525eba3b4fa2789d4048f4c66ffb461052abdcfcbd0ee4e25150039bb6dcb5e24b46b52cf5c7c6d539d524a952e07eaac9717c1eb207617e49604b4e9c8105238ea5d5e44e0932c6425cb964fc3897a37d33e3f60e634578603c933815c54b1263b42ae65eb8faa9e62f2eb1002b369eacd456387ba3f7f126ab32a4b1a878a15d2b8a27adba68fe54c2f68a4fe21305860110f21742a70416091586f535bc1ee9197d279538bf72a447d022fdc823cb2129ace52ceaed9fe879c18e35273759bf24624f105ccf230fe9aee4d30e7cb7c1743e29cc8b0a64a8ef38a59690beaca763767c4734f45cd84ba8ab3f495837a804c84d2c363b35e8a297ec961d2b0fb7fe11ebe656381b2185b8b36714f91bfbb0b46d4f723024a53ea9720819fb2cfc10e85c2a0afc6f5dc25a0fd53c85410585eec159b79d18f0ec5afc7eda850291be1cd556f93bd2058aacaba5b2447d962f2b978bbd67c00e0a'
-    })
-  });
-  
-  return response.json();
+const { code } = await authRequest.json();
 
-}
+const tokenRequest = await fetch('https://www.amocrm.ru/oauth2/access_token', {
+  method: 'POST',
+  body: JSON.stringify({
+    client_id: clientId,
+    client_secret: clientSecret, 
+    redirect_uri: redirectUri,
+    grant_type: 'authorization_code',
+    code: code 
+  }) 
+});
+
+const accessToken = await tokenRequest.json();
 
 // Получение сделки по ID
 async function getLead(leadId, accessToken) {
@@ -244,14 +252,6 @@ async function updateLead(lead, accessToken) {
   return response.json();
 
 }
-
-
-// Использование
-
-// 1. Получение кода авторизации и обмен на токен
-
-const tokenData = await exchangeCode(code);
-const accessToken = tokenData.access_token;
 
 // 2. Получение сделки по ID  
 const lead = await getLead(23151673, accessToken);
