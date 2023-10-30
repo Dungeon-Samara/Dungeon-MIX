@@ -209,7 +209,7 @@ const authRequest = await fetchViaProxy('private/api/auth/login', {
   })
 });
 
-const { code } = await authRequest.json();
+const code = await authRequest.json();
 
 const tokenRequest = await fetchViaProxy('oauth2/access_token', {
   method: 'POST',
