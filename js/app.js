@@ -198,7 +198,7 @@ async function fetchViaProxy(endpoint) {
 
 }
 
-const authRequest = await fetch('https://www.amocrm.ru/private/api/auth/login', {
+const authRequest = await fetchViaProxy('https://www.amocrm.ru/private/api/auth/login', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json'
@@ -211,7 +211,7 @@ const authRequest = await fetch('https://www.amocrm.ru/private/api/auth/login', 
 
 const { code } = await authRequest.json();
 
-const tokenRequest = await fetch('https://www.amocrm.ru/oauth2/access_token', {
+const tokenRequest = await fetchViaProxy('https://www.amocrm.ru/oauth2/access_token', {
   method: 'POST',
   body: JSON.stringify({
     client_id: clientId,
