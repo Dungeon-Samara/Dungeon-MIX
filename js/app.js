@@ -213,6 +213,9 @@ const code = await authRequest.json();
 
 const tokenRequest = await fetchViaProxy('oauth2/access_token', {
   method: 'POST',
+  headers: {
+    'Content-Type': 'application/json' 
+  },
   body: JSON.stringify({
     client_id: clientId,
     client_secret: clientSecret, 
@@ -228,8 +231,10 @@ const accessToken = await tokenRequest.json();
 async function getLead(leadId, accessToken) {
 
   const response = await fetchViaProxy(`api/v2/leads/${leadId}`, {
+    method:'GET',
     headers: {
-      Authorization: `Bearer ${accessToken}`
+      Authorization: `Bearer ${accessToken}`,
+      'Content-Type': 'application/json'
     }
   });
 
@@ -241,11 +246,11 @@ async function getLead(leadId, accessToken) {
 async function updateLead(lead, accessToken) {
 
   const response = await fetchViaProxy(`api/v2/leads`, {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${accessToken}`,  
-      'Content-Type': 'application/json'
-    },
+   method: 'POST',
+   headers: {
+    Authorization: `Bearer ${accessToken}`,
+    'Content-Type': 'application/json'
+  },
     body: JSON.stringify(lead)
   });
 
