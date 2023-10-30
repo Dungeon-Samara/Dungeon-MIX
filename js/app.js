@@ -182,7 +182,7 @@ const hash = CryptoJS.MD5(password).toString();
 const login = 'dungeonbron@gmail.com';
 
 // Константа с URL API
-const API_URL = 'https://www.amocrm.ru/api/v2/leads';
+const API_URL = 'https://www.amocrm.ru/';
 
 // Базовый URL прокси 
 const PROXY = 'https://api.allorigins.win/raw?url=';
@@ -198,7 +198,7 @@ async function fetchViaProxy(endpoint) {
 
 }
 
-const authRequest = await fetchViaProxy('https://www.amocrm.ru/private/api/auth/login', {
+const authRequest = await fetchViaProxy('private/api/auth/login', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json'
@@ -211,7 +211,7 @@ const authRequest = await fetchViaProxy('https://www.amocrm.ru/private/api/auth/
 
 const { code } = await authRequest.json();
 
-const tokenRequest = await fetchViaProxy('https://www.amocrm.ru/oauth2/access_token', {
+const tokenRequest = await fetchViaProxy('oauth2/access_token', {
   method: 'POST',
   body: JSON.stringify({
     client_id: clientId,
@@ -227,7 +227,7 @@ const accessToken = await tokenRequest.json();
 // Получение сделки по ID
 async function getLead(leadId, accessToken) {
 
-  const response = await fetchViaProxy(`https://www.amocrm.ru/api/v2/leads/${leadId}`, {
+  const response = await fetchViaProxy(`api/v2/leads/${leadId}`, {
     headers: {
       Authorization: `Bearer ${accessToken}`
     }
@@ -240,7 +240,7 @@ async function getLead(leadId, accessToken) {
 // Обновление сделки
 async function updateLead(lead, accessToken) {
 
-  const response = await fetchViaProxy(`https://www.amocrm.ru/api/v2/leads`, {
+  const response = await fetchViaProxy(`api/v2/leads`, {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${accessToken}`,  
