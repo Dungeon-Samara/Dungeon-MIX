@@ -182,7 +182,7 @@ const hash = CryptoJS.MD5(password).toString();
 const login = 'dungeonbron@gmail.com';
 
 // Константа с URL API
-const API_URL = 'https://dungeonbron.amocrm.ru/';
+const API_URL = 'https://www.amocrm.ru/';
 
 // Базовый URL прокси 
 const PROXY = 'https://api.allorigins.win/raw?url=';
