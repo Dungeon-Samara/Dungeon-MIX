@@ -168,11 +168,10 @@ const button = document.getElementById('test');
 
 button.addEventListener('click', async () => {
 // Конфиг для авторизации 
-const authConfig = {
-  clientId: '29966803',
-  clientSecret: 'o7hrkGhmGa2bFUPwnHQNRc0EsaRjiB4f5nYXCKe1pYWiL0n2wjtAkbqhTKzJsYtY', 
-  redirectUri: 'https://dungeon-samara.github.io/Dungeon-MIX/'
-};
+
+ const clientId = '29966803';
+ const clientSecret = 'o7hrkGhmGa2bFUPwnHQNRc0EsaRjiB4f5nYXCKe1pYWiL0n2wjtAkbqhTKzJsYtY';
+ const redirectUri = 'https://dungeon-samara.github.io/Dungeon-MIX/';
 // Пароль в открытом виде
 const password = 'zscPB6e7';
 
@@ -210,6 +209,7 @@ const authRequest = await fetchViaProxy('private/api/auth/login', {
 });
 
 const code = await authRequest.json();
+console.log(code);
 
 const tokenRequest = await fetchViaProxy('oauth2/access_token', {
   method: 'POST',
@@ -226,6 +226,7 @@ const tokenRequest = await fetchViaProxy('oauth2/access_token', {
 });
 
 const accessToken = await tokenRequest.json();
+console.log(accessToken);
 
 // Получение сделки по ID
 async function getLead(leadId, accessToken) {
